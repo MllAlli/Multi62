@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Westminster Palace</title>
+  <style type="text/css">
+    body {
+        margin: 0 auto;
+    }
+    svg {
+      position: absolute;
+      margin: 0 auto;
+    }
+    path {
+      stroke: #ccc;
+      stroke-width: 0.75;
+    }
+    .move {
+      transform: translate(200px, -310px);
+    }
+    .wheel1 {
+      transform: skewX(60deg);
+    }
+
+  </style>
+</head>
+<body>
+
+  <svg width="2400" height="1600">
+
+    <path d="M0 1600 2400 1600 2400 600 0 600 z" style="fill: #81963B; stroke: #81963B; stroke-width: 1" />
+    <path d="M0 0 2400 0 2400 600 0 600 z" style="fill: #9CBBB0; stroke: #81963B; stroke-width: 1" />
+
+    <!-- แม่น้ำ -->
+    <path d="M0 900 L1400 1500 z" style="fill: none; stroke: black; stroke-width: 1" />
+    <path d="M1200 1600 L2400 1000 L2400 1040 L1300 1600 z" style="fill: #727272; stroke: #727272; stroke-width: 1" />
+    <path d="M1300 1600 L2400 1040 L2400 1193 L1615 1600 z" style="fill: #474747; stroke: #474747; stroke-width: 1" />
+    <path d="M2400 1193 L1615 1600 L1630 1600 L2400 1200 z" style="fill: #afacc1; stroke: #afacc1; stroke-width: 1" />
+    <path d="M1970 1600 L2400 1350 L2400 1200 L1630 1600 z" style="fill: #474747; stroke: #474747; stroke-width: 1" />
+    <path d="M1970 1600 L2400 1350 L2400 1400 L2050 1600 z" style="fill: #727272; stroke: #727272; stroke-width: 1" />
+    <!-- แม่น้ำ -->
+
+    <!-- ถนน -->
+    <g>
+    <path d="M0 900 L0 930 L80 1000 L89 1090 L190 1097 L280 1160 L400 1160 L560 1230 L800 1400 L870 1400 L990 1510 L1220 1590 L1400 1500 z" style="fill: #3d3e52; stroke: #3d3e52; stroke-width: 1" />
+    <path d="M0 930 L80 1000 L89 1090 L190 1097 L280 1160 L400 1160 L560 1230 L800 1400 L870 1400 L990 1510 L1220 1590 L1200 1600 L960 1560 L840 1450 L790 1430 L550 1260 L380 1200 L270 1190 L180 1120 L83 1100 L69 1020 L0 950 z" style="fill: #384975; stroke: #384975; stroke-width: 1" />
+    <path d="M0 950 L69 1020 L83 1100 L180 1120 L270 1190 L380 1200 L550 1260 L790 1430 L840 1450 L960 1560 L1200 1600 L300 1600 L220 1400 L89 1200 L51 1030 L0 970 z" style="fill: #38538a; stroke: #38538a; stroke-width: 1" />
+    <path d="M0 970 L51 1030 L89 1200 L220 1400 L300 1600 L0 1600 z" style="fill: #4b669b; stroke: #4b669b; stroke-width: 1" />
+    </g>
+    <!-- ถนน -->
+
+  <!--ตึกนอนใหญ่-->
+  <defs>
+    <g id="rolb">
+      <path d="M 560 700 L 560 1060 L 340 968 L 340 640 L 640 670 L 640 1020 L 560 1060   Z" style="fill: #CDA66B;" />
+      <path d="M 597 590 L 380 540 L 340 640 L 560 700 L 640 670  Z" style="fill: #393836;" />
+      <path d="M 360 885 L 360 946 L 540 1020 L 540 950  Z" style="fill: #000;" />
+      <path d="M 360 775 L 360 840 L 540 905 L 540 833  Z" style="fill: #000;" />
+      <path d="M 360 675 L 360 730 L 540 785 L 540 725   Z" style="fill: #000;" />
+      <path d="M 560 1050 L 560 1060 L 340 968 L 340 958 Z" style="fill: #EDD09D;" />
+      <path d="M 560 1050 L 560 1040 L 340 948 L 340 958 Z" style="fill: #EDC07D;" />
+      <path d="M 560 1050 L 560 1060 L 640 1020 L 640 1010 Z" style="fill: #EDD09D;" />
+      <path d="M 560 1050 L 560 1040 L 640 1000 L 640 1010 Z" style="fill: #EDC07D;" />
+      <path d="M 560 700 L 560 710 L 340 650 L 340 640 Z" style="fill: #EDD09D;" />
+      <path d="M 560 720 L 560 710 L 340 650 L 340 660 Z" style="fill: #EDC07D;" />
+      <path d="M 560 700 L 560 710 L 640 680 L 640 670 Z" style="fill: #EDD09D;" />
+      <path d="M 560 720 L 560 710 L 640 680 L 640 690 Z" style="fill: #EDC07D;" />
+      <path d="M 560 800 L 560 810 L 340 740 L 340 730 Z" style="fill: #EDC07D;" />
+      <path d="M 560 820 L 560 810 L 340 740 L 340 750 Z" style="fill: #EDD09D;" />
+      <path d="M 560 820 L 560 830 L 340 760 L 340 750 Z" style="fill: #EDC07D;" />
+      <path d="M 560 800 L 560 810 L 640 780 L 640 770 Z" style="fill: #EDC07D;" />
+      <path d="M 560 820 L 560 810 L 640 780 L 640 790 Z" style="fill: #EDD09D;" />
+      <path d="M 560 820 L 560 830 L 640 800 L 640 790 Z" style="fill: #EDC07D;" />
+      <path d="M 560 930 L 560 920 L 340 840 L 340 850 Z" style="fill: #EDC07D;" />
+      <path d="M 560 930 L 560 940 L 340 860 L 340 850 Z" style="fill: #EDD09D;" />
+      <path d="M 560 950 L 560 940 L 340 860 L 340 870 Z" style="fill: #EDC07D;" />
+      <path d="M 560 930 L 560 920 L 640 890 L 640 900 Z" style="fill: #EDC07D;" />
+      <path d="M 560 930 L 560 940 L 640 910 L 640 900 Z" style="fill: #EDD09D;" />
+      <path d="M 560 950 L 560 940 L 640 910 L 640 920 Z" style="fill: #EDC07D;" />
+    </g>
+  </defs>
+  <!--ตึกนอนใหญ่-->
+
+  <!--ตึกนอน-->
+  <defs>
+    <g id="rol">
+      <path d="M 420 720 L 420 1050 L 300 998 L 300 690 L 480 695 L 480 1020 L 420 1050   Z" style="fill: #CDA66B;" />
+      <path d="M 300 690 L 420 720 L 300 690 L 335 605 L 450 635 L 420 720 L 450 635 L 480 695 L 480 695 L 420 720 Z" style="fill: #393836;" />
+      <path d="M 420 720 L 420 730 L 300 700 L 300 690  Z" style="fill: #EDD09D;" />
+      <path d="M 420 740 L 420 730 L 300 700 L 300 710  Z" style="fill: #EDC07D;" />
+      <path d="M 420 720 L 420 730 L 480 705 L 480 695  Z" style="fill: #EDD09D;" />
+      <path d="M 420 740 L 420 730 L 480 700 L 480 710  Z" style="fill: #EDC07D;" />
+      <path d="M 420 800 L 420 810 L 300 780 L 300 770  Z" style="fill: #EDC07D;" />
+      <path d="M 420 810 L 420 820 L 300 790 L 300 780  Z" style="fill: #EDD09D;" />
+      <path d="M 420 820 L 420 830 L 300 800 L 300 790  Z" style="fill: #EDC07D;" />
+      <path d="M 420 800 L 420 810 L 480 780 L 480 770  Z" style="fill: #EDC07D;" />
+      <path d="M 420 810 L 420 820 L 480 790 L 480 780  Z" style="fill: #EDD09D;" />
+      <path d="M 420 820 L 420 830 L 480 800 L 480 790  Z" style="fill: #EDC07D;" />
+      <path d="M 420 900 L 420 910 L 300 880 L 300 870  Z" style="fill: #EDC07D;" />
+      <path d="M 420 910 L 420 920 L 300 890 L 300 880  Z" style="fill: #EDD09D;" />
+      <path d="M 420 920 L 420 930 L 300 900 L 300 890  Z" style="fill: #EDC07D;" />
+      <path d="M 420 900 L 420 910 L 480 880 L 480 870  Z" style="fill: #EDC07D;" />
+      <path d="M 420 910 L 420 920 L 480 890 L 480 880  Z" style="fill: #EDD09D;" />
+      <path d="M 420 920 L 420 930 L 480 900 L 480 890  Z" style="fill: #EDC07D;" />
+      <path d="M 420 1050 L 420 1040 L 300 990 L 300 1000  Z" style="fill: #EDD09D;" />
+      <path d="M 420 1040 L 420 1030 L 300 980 L 300 990  Z" style="fill: #EDC07D;" />
+      <path d="M 420 1050 L 420 1040 L 480 1010 L 480 1020  Z" style="fill: #EDD09D;" />
+      <path d="M 420 1040 L 420 1030 L 480 1000 L 480 1010  Z" style="fill: #EDC07D;" />
+      <path d="M 310 910 L 310 975 L 400 1010 L 400 935 Z" style="fill: #000 ;" />
+      <path d="M 310 810 L 310 865 L 400 885 L 400 835 Z" style="fill: #000 ;" />
+      <path d="M 310 720 L 310 765 L 400 787 L 400 745 Z" style="fill: #000 ;" />
+
+    </g>
+  </defs>
+  <!--ตึกนอน-->
+
+  <!--ตั้ง-->
+  <defs>
+    <g id="col">
+      <path d="M 1020 1250 L 930 1210 L 930 895 L 1020 920 L 1738 600 L 1738 895 Z" style="fill:  #CDA66B;" />
+      <path d="M 1020 1250 L 1020 920  Z" style="fill:  none;" />
+      <path d="M 1020 930 L 1020 920 L 1738 600 L 1738 610 Z" style="fill:  #EDD09D;" />
+      <path d="M 1020 940 L 1020 930 L 1738 610 L 1738 620 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 930 L 1020 920 L 930 895 L 930 905 Z" style="fill:  #EDD09D;" />
+      <path d="M 1020 940 L 1020 930 L 930 905 L 930 915 Z" style="fill:  #EDC07D;" />
+
+      <path d="M 1020 1020 L 1020 1030 L 1738 710 L 1738 700 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 1030 L 1020 1040 L 1738 720 L 1738 710 Z" style="fill:  #EDD09D;" />
+      <path d="M 1020 1040 L 1020 1050 L 1738 730 L 1738 720 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 1020 L 1020 1030 L 930 1000 L 930 990 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 1030 L 1020 1040 L 930 1010 L 930 1000 Z" style="fill:  #EDD09D;" />
+      <path d="M 1020 1040 L 1020 1050 L 930 1020 L 930 1010 Z" style="fill:  #EDC07D;" />
+
+      <path d="M 1020 1130 L 1020 1140 L 1738 800 L 1738 790 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 1140 L 1020 1150 L 1738 810 L 1738 800 Z" style="fill:  #EDD09D;" />
+      <path d="M 1020 1150 L 1020 1160 L 1738 820 L 1738 810 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 1130 L 1020 1140 L 930 1110 L 930 1100 Z" style="fill:  #EDC07D;" />
+      <path d="M 1020 1140 L 1020 1150 L 930 1120 L 930 1110 Z" style="fill:  #EDD09D;" />
+      <path d="M 1020 1150 L 1020 1160 L 930 1130 L 930 1120 Z" style="fill:  #EDC07D;" />
+
+      <path d="M 1020 1250 L 1020 1240 L 1738 885 L 1738 895 Z" style="fill: #EDD09D;" />
+      <path d="M 1020 1230 L 1020 1240 L 1738 885 L 1738 875 Z" style="fill: #EDC07D;" />
+      <path d="M 1020 1250 L 1020 1240 L 930 1200 L 930 1210 Z" style="fill: #EDD09D;" />
+      <path d="M 1020 1230 L 1020 1240 L 930 1200 L 930 1190 Z" style="fill: #EDC07D;" />
+
+      <path d="M 930 895 L 975 820 L 1700 520 L 1738 600 L 1020 920 L 975 820 L 1020 920 Z" style="fill: #393836;" />
+      <path d="M 1030 1215 L 1030 1170 L 1730 835 L 1730 870 Z" style="fill:  #000;" />
+      <path d="M 1030 1055 L 1030 1115 L 1730 785 L 1730 740 Z" style="fill:  #000;" />
+      <path d="M 1030 945 L 1030 1010 L 1730 700 L 1730 635 Z" style="fill:  #000;" />
+    </g>
+  </defs>
+  <!--ตั้ง-->
+
+  <!--นอนยาวอันหลัง-->
+  <defs>
+    <g id="rows">
+      <path d="M 2160 930 L 2200 840 L 1070 390 L 1030 470 L 1030 750 L 2160 1150 L 2160 930 L 1030 470 Z" style="fill: #CDA66B;" />
+      <path d="M 2160 930 L 2200 830 L 1075 380 L 1030 470 Z" style="fill: #393836;" />
+    </g>
+  </defs>
+  <!--นอนยาวอันหลัง-->
+
+  <!-- หอคอยกลาง -->
+  <defs>
+    <g id="tower">
+      <!-- ฐาน -->
+
+      <path d="M920 555 920 435 930 450 930 565z" style="fill: #CDA66B;" />
+      <path d="M930 450 930 565 960 575 960 460 z" style="fill: #CDA66B;" />
+      <path d="M960 575 960 460 1000 465 1000 580 z" style="fill: #CDA66B;" />
+      <path d="M1040 460 1040 575 1000 580 1000 465 z" style="fill: #CDA66B;" />
+      <path d="M1070 565 1070 450 1040 460 1040 575 z" style="fill: #CDA66B;" />
+      <path d="M1070 565 1070 450 1080 435 1080 555 z" style="fill: #CDA66B;" />
+
+      <!-- หน้าต่าง -->
+      <path d="M922 555 922 450 926 457 926 559z" style="fill: #000;" />
+      <path d="M935 461 935 563 942 566 942 464 z" style="fill: #000;" />
+      <path d="M954 468 954 570 947 567 947 465 z" style="fill: #000;" />
+      <path d="M968 572 968 470 978 472 978 574 z" style="fill: #000;" />
+      <path d="M993 576 993 474 983 472 983 574 z" style="fill: #000;" />
+      <path d="M1019 472 1019 574 1009 575 1009 474 z" style="fill: #000;" />
+      <path d="M1024 472 1024 573 1034 571 1034 470 z" style="fill: #000;" />
+      <path d="M1054 566 1054 466 1046 469 1046 569 z" style="fill: #000;" />
+      <path d="M1058 565 1058 465 1065 462 1065 562 z" style="fill: #000;" />
+      <path d="M1073 560 1073 457 1078 450 1078 555 z" style="fill: #000;" />
+
+      <!-- ขอบ -->
+      <path d="M917 440 917 428 924 425 921 430 930 443 930 455z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M930 443 930 455 960 465 960 453 960 453 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M960 465 960 453 1000 458 1000 470 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M1040 453 1040 465 1000 470 1000 458 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M1070 455 1070 443 1040 453 1040 465 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M1070 455 1070 443 1080 430 1077 425 1083 428 1083 440 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+
+      <!-- หลังคาป้าน -->
+      <path d="M924 425 921 430 930 443 953 380 950 375z" style="fill: #393836; stroke:#232322; stroke-width: 1" />
+      <path d="M930 443 960 453 970 388 953 380 z" style="fill: #393836; stroke:#232322; stroke-width: 1" />
+      <path d="M960 453 1000 458 1000 391 970 388 z" style="fill: #393836; stroke:#232322; stroke-width: 1" />
+      <path d="M1040 453 1000 458 1000 391 1030 388 z" style="fill: #393836; stroke:#232322; stroke-width: 1" />
+      <path d="M1070 443 1040 453 1030 388 1048 381  z" style="fill: #393836; stroke:#232322; stroke-width: 1" />
+      <path d="M1070 443 1080 430 1077 425 1051 375 1048 381 z" style="fill: #393836; stroke:#232322; stroke-width: 1" />
+
+      <!-- ฐาน2 -->
+      <path d="M953 380 950 375 950 330 953 335z" style="fill: #CDA66B;" />
+      <path d="M970 388 953 380 953 335 970 343 z" style="fill: #CDA66B;" />
+      <path d="M1000 391 970 388 970 343 1000 346 z" style="fill: #CDA66B;" />
+      <path d="M1000 391 1030 388 1030 343 1000 346 z" style="fill: #CDA66B;" />
+      <path d="M1030 388 1048 381 1048 335 1030 343  z" style="fill: #CDA66B;" />
+      <path d="M1051 375 1048 381 1048 335 1051 330  z" style="fill: #CDA66B;" />
+
+      <!-- หลังคาฐาน2 -->
+      <path d="M965 375 957 367 957 347 965 355 z" style="fill: #000000;" />
+      <path d="M993 381 978 379 978 357 993 359 z" style="fill: #000000;" />
+      <path d="M1007 381 1023 379 1023 358 1007 360 z" style="fill: #000000;" />
+      <path d="M1035 380 1045 375 1045 353 1035 357  z" style="fill: #000000;" />
+
+      <!-- ฐานหลังคา1 -->
+      <path d="M950 330 953 335 950 315 945 310 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M953 335 970 343 967 321 950 315 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M970 343 1000 346 1000 325 967 321 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M1030 343 1000 346 1000 325 1033 322 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M1048 335 1030 343 1033 322 1049 315 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M1048 335 1051 330 1055 310 1049 315 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+
+      <!-- ฐานหลังคา2 -->
+      <path d="M950 300 953 305 950 315 945 310 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M953 305 969 312 967 321 950 315 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M969 312 1000 316 1000 325 967 321 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M1032 313 1000 316 1000 325 1033 322 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M1047 306 1032 313 1033 322 1049 315 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+      <path d="M1047 306 1051 300 1055 310 1049 315 z" style="fill: #232322; stroke: #232322; stroke-width: 1" />
+
+      <!-- หลังคา2 -->
+      <path d="M950 300 953 305 1000 110 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M953 305 969 312 1000 110 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M969 312 1000 316 1000 225 1000 110 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M1032 313 1000 316 1000 110 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M1047 306 1032 313 1000 110 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+      <path d="M1047 306 1051 300 1000 110 z" style="fill: #393836; stroke: #232322; stroke-width: 1" />
+
+      <!-- เสา -->
+      <path d="M924 434 920 429 920 310 922 300 924 310 945 312 945 310 924 312 z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+      <path d="M929 440 933 444 933 317 950 317 950 315 933 315 931 303 929 315  z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+      <path d="M957 454 963 456 963 328 965 321 965 319 963 319 961 313 957 323 z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+      <path d="M996 460 1004 460 1004 327 1000 319 996 327 z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+      <path d="M1044 454 1036 456 1036 328 1036 327 1032 325 1032 322 1036 323 1040 313 1044 321 z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+      <path d="M1068 445 1072 442 1072 317 1070 303 1068 315 1050 315 1050 317 1068 319 z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+      <path d="M1078 434 1082 429 1082 310 1080 300 1078 312 1055 312 1055 314 1078 314 z" style="fill: #CDA66B; stroke: #C79065; stroke-width: 1" />
+
+    </g>
+  </defs>
+
+  <defs>
+    <g id="fortress">
+
+      <path fill="#EDC07D" d="M1300,1200 L1385,1220 L1385,1560 L1300,1540z" />
+      <path fill="#EDC07D" d="M1471,1200 L1386,1220 L1386,1560 L1471,1540z" />
+
+      <path fill="#EDD09D" d="M1300,1200 L1385,1220 L1385,1230 L1300,1210z" />
+      <path fill="#EDD09D" d="M1471,1200 L1386,1220 L1386,1230 L1471,1210z" />
+      <path fill="#EDD09D" d="M1300,1310 L1385,1330 L1385,1340 L1300,1320z" />
+      <path fill="#EDD09D" d="M1471,1310 L1386,1330 L1386,1340 L1471,1320z" />
+      <path fill="#EDD09D" d="M1300,1420 L1385,1440 L1385,1450 L1300,1430z" />
+      <path fill="#EDD09D" d="M1471,1420 L1386,1440 L1386,1450 L1471,1430z" />
+      <path fill="#EDD09D" d="M1300,1530 L1385,1550 L1385,1560 L1300,1540z" />
+      <path fill="#EDD09D" d="M1471,1530 L1386,1550 L1386,1560 L1471,1540z" />
+
+      <path fill="#CDA66B" d="M1300,1225 L1385,1245 L1385,1320 L1300,1300" />
+      <path fill="#CDA66B" d="M1300,1330 L1385,1350 L1385,1430 L1300,1410 " />
+      <path fill="#CDA66B" d="M1300,1440 L1385,1460 L1385,1540 L1300,1520 " />
+      <path fill="#CDA66B" d="M1385,1460 L1471,1440 L1471,1520 L1385,1540 " />
+      <path fill="#CDA66B" d="M1385,1350 L1471,1330 L1471,1410 L1385,1430 " />
+      <path fill="#CDA66B" d="M1385,1245 L1471,1225 L1471,1300 L1385,1320 " />
+
+      <!--Left_First_Window-->
+      <path fill="black" d="M1316,1250 L1321,1251.4 L1321,1301.3 L1316,1300z" />
+      <path fill="black" d="M1327,1245 L1332,1246.4 L1332,1303.8 L1327,1302.4z" />
+      <path fill="black" d="M1338,1240 L1343,1241.4 L1343,1306.0 L1338,1304.6z" />
+      <path fill="black" d="M1349,1248 L1354,1249.4 L1354,1308.2 L1349,1306.8z" />
+      <path fill="black" d="M1360,1256 L1365,1257.4 L1365,1310.7 L1360,1309z" />
+
+      <!--Left_Second_Window-->
+      <path fill="black" d="M1315,1355 L1321,1356.4 L1321,1408.4 L1316,1407z" />
+      <path fill="black" d="M1327,1350 L1332,1351.4 L1332,1410.6 L1327,1409.2z" />
+      <path fill="black" d="M1338,1345 L1343,1346.4 L1343,1412.8 L1338,1411.4z" />
+      <path fill="black" d="M1349,1353 L1354,1354.4 L1354,1415.0 L1349,1413.6z" />
+      <path fill="black" d="M1360,1361 L1365,1362.4 L1365,1417.2 L1360,1415.8z" />
+
+      <!--Left_third_Window-->
+      <path fill="black" d="M1316,1463 L1321,1464 L1321,1515.4 L1316,1514z" />
+      <path fill="black" d="M1327,1461 L1332,1462 L1332,1517.6 L1327,1516.2z" />
+      <path fill="black" d="M1338,1459 L1343,1460 L1343,1519.8 L1338,1518.4z" />
+      <path fill="black" d="M1349,1465 L1354,1466 L1354,1522.0 L1349,1520.6z" />
+      <path fill="black" d="M1360,1469 L1365,1470 L1365,1524.2 L1360,1522.8z" />
+
+      <!--Right_First_window-->
+      <path fill="black" d="M1402,1471.4 L1407,1470 L1407,1524.7 L1402,1526z" />
+      <path fill="black" d="M1413,1463.4 L1418,1462 L1418,1522.5 L1413,1523.6z" />
+      <path fill="black" d="M1424,1455.4 L1429,1454 L1429,1520.3 L1424,1521.4z" />
+      <path fill="black" d="M1435,1460.4 L1440,1459 L1440,1518.1 L1435,1519.2z" />
+      <path fill="black" d="M1446,1465.4 L1451,1464 L1451,1515.9 L1446,1517.0z" />
+
+      <!--Right_Second_window-->
+      <path fill="black" d="M1402,1371.4 L1407,1370 L1407,1418.0 L1402,1419z" />
+      <path fill="black" d="M1413,1363.4 L1418,1362 L1418,1416.5 L1413,1417.6z" />
+      <path fill="black" d="M1424,1355.4 L1429,1354 L1429,1413.3 L1424,1414.4z" />
+      <path fill="black" d="M1435,1360.4 L1440,1359 L1440,1411.1 L1435,1412.2z" />
+      <path fill="black" d="M1446,1365.4 L1451,1364 L1451,1409.0 L1446,1410.0z" />
+
+      <!--Right_third_window-->
+      <path fill="black" d="M1402,1261.4 L1407,1260 L1407,1310.5 L1402,1312z" />
+      <path fill="black" d="M1413,1251.4 L1418,1250 L1418,1308.3 L1413,1309.6z" />
+      <path fill="black" d="M1424,1243.4 L1429,1242 L1429,1306.1 L1424,1307.3z" />
+      <path fill="black" d="M1435,1248.4 L1440,1247 L1440,1303.9 L1435,1305.1z" />
+      <path fill="black" d="M1446,1253.4 L1451,1252 L1451,1301.7 L1446,1302.9z" />
+
+      <!--Pillar-->
+      <path fill="#524030" d="M1300,1200 L1305,1201 L1305,1541.5 L1300,1540" />
+      <path fill="#524030" d="M1380,1218.7 L1385,1219.9 L1385,1560 L1380,1559" />
+      <path fill="#524030" d="M1386,1219.5 L1391,1218 L1391,1558.8 L1386,1560" />
+      <path fill="#524030" d="M1466,1201 L1471,1200 L1471,1540 L1466,1541.5" />
+
+      <!--roof-->
+
+      <path fill="darkolivegreen" d="M1300,1199.5 L1385,1180 L1471,1199.5 L1385,1219.7" />
+      <path fill="#CDA66B" d="M1378,1188 L1385.5,1191 L1385.5,1219.5 L1378,1218.5" />
+      <path fill="#CDA66B" d="M1385.6,1191 L1394,1188 L1394,1218.5 L1385.6,1219.5" />
+
+      <path fill="#CDA66B" d="M1299.1,1200 L1306,1202 L1306,1180 L1299.1,1178" />
+      <path fill="#CDA66B" d="M1306,1201.7 L1313,1200 L1313,1178.1 L1306,1179.9" />
+
+      <path fill="#CDA66B" d="M1378,1181.5 L1384.9,1184 L1384.9,1166 L1378,1164" />
+      <path fill="#CDA66B" d="M1384.9,1184 L1390.9,1181.5 L1390.9,1164 L1384.9,1166" />
+
+      <path fill="#CDA66B" d="M1463.9,1180 L1471.9,1178 L1471.9,1199.5 L1463.9,1201" />
+      <path fill="#CDA66B" d="M1456.9,1178 L1463.9,1180 L1463.9,1201 L1456.9,1199.5" />
+
+      <path fill="lightblue" d="M1378,1188 L1385.5,1191 L1394,1188 L1385.5,1170" />
+      <path fill="lightblue" d="M1299,1178.8 L1306.5,1180 L1313,1178 L1306.5,1159.9" />
+      <path fill="lightblue" d="M1378,1164 L1384.9,1146 L1391,1164 L1385.5,1166" />
+      <path fill="lightblue" d="M1456.9,1177.7 L1463.5,1180.9 L1472,1178 L1463.9,1162" />
+
+    </g>
+  </defs>
+
+  <defs>
+    <g id="big">
+      <g stroke="gray" stroke-width="1">
+        <path d="M870,450 L1065,500 L1065,180 L870,130" fill="#EDC07D" />
+        <path d="M1260,450 L1066,500 L1066,180 L1260,130" fill="#EDC07D" />
+        <path d="M870,280 L1065,330 L1065,220 L870,170" fill="darkolivegreen" />
+        <path d="M1260,280 L1066,330 L1066,220 L1260,170" fill="darkolivegreen" />
+        <path d="M870,450 L900,456 L900,138 L870,130" fill="#524030" />
+        <path d="M1260,450 L1230,460 L1230,138 L1260,130" fill="#524030" />
+        <path d="M1066,500 L1086,495 L1086,175 L1066,180" fill="#524030" />
+        <path d="M1065,500 L1045,495 L1045,175 L1065,180" fill="#524030" />
+        <path d="M870,150 L1065,200 L1065,180 L870,130z" fill="#EDD09D" />
+        <path d="M1260,150 L1066,200 L1066,180 L1260,130z" fill="#EDD09D" />
+        <path d="M870,320 L1065,370 L1065,350 L870,300z" fill="#EDD09D" />
+        <path d="M1260,320 L1066,370 L1066,350 L1260,300z" fill="#EDD09D" />
+        <path d="M940,205 L950,215 L950,275 L940,285 L930,275 L930,215z" />
+        <path d="M970,210 L980,220 L980,280 L970,290 L960,280 L960,220z" />
+        <path d="M1000,217 L1010,227 L1010,287 L1000,297 L990,287 L990,227z" />
+
+        <path d="M1130,221 L1140,231 L1140,291 L1130,301 L1120,294 L1120,234z" />
+        <path d="M1160,213 L1170,223 L1170,283 L1160,293 L1150,285 L1150,225z" />
+        <path d="M1190,205 L1200,215 L1200,275 L1190,285 L1180,277 L1180,217z" />
+
+        <path d="M870,130 L880,110 L1066,155 L1066,180z" fill="#393836" />
+        <path d="M1260,130 L1250,110 L1066,155 L1066,180z" fill="#393836" />
+        <path d="M880,110 L1066.5,155 L1250,109.5 L1067,0 z" fill="#393836" />
+      </g>
+    </g>
+  </defs>
+
+  <!--ใช้-->
+  <use x="-90" y="" xlink:href="#big" />
+  <use x="40" y="-150" xlink:href="#rows" />
+  <use x="-680" y="-270" xlink:href="#col" />
+  <use x="350" y="-100" xlink:href="#rolb" />
+  <use x="-330" y="-140" xlink:href="#col" />
+  <use x="-130" y="-50" xlink:href="#col" />
+  <use x="850" y="120" xlink:href="#rolb" />
+  <use x="210" y="90" xlink:href="#col" />
+  <use x="450" y="200" xlink:href="#col" />
+
+  <use x="-1300" y="-630" xlink:href="#fortress" />
+  <use x="-220" y="-72" xlink:href="#rol" />
+  <use x="-1096" y="-558" xlink:href="#fortress" />
+  <use x="-40" y="52" xlink:href="#rolb" />
+  <use x="-770" y="-421" xlink:href="#fortress" />
+  <use x="325" y="162" xlink:href="#rol" />
+  <use x="-552" y="-325" xlink:href="#fortress" />
+  <use x="500" y="283" xlink:href="#rolb" />
+  <use x="-227" y="-189" xlink:href="#fortress" />
+  <use x="880" y="398" xlink:href="#rol" />
+  <use x="0" y="-90" xlink:href="#fortress" />
+
+  <!--Underline-->
+  <path class="move" fill="#7C705C" d="M2100 1350 L2000 1300 L2000 1310 L2100 1360 Z" />
+  <!--1stBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2000 1200 L2100 1250 L2100 1350 L2000 1300 Z" />
+    <path fill="#CDA66B" d="M2015 1209 L2085 1245 L2085 1340 L2015 1305 Z" />
+    <path fill="#000" d="M2030 1230 L2035 1230 L2035 1260 L2030 1260Z" />
+    <path fill="#000" d="M2030 1275 L2035 1275 L2035 1295 L2030 1295Z" />
+    <path fill="#000" d="M2040 1235 L2045 1235 L2045 1265 L2040 1265Z" />
+    <path fill="#000" d="M2040 1280 L2045 1280 L2045 1300 L2040 1300Z" />
+    <path fill="#000" d="M2050 1240 L2055 1240 L2055 1270 L2050 1270Z" />
+    <path fill="#000" d="M2050 1285 L2055 1285 L2055 1305 L2050 1305Z" />
+    <path fill="#000" d="M2060 1245 L2065 1245 L2065 1275 L2060 1275Z" />
+    <path fill="#000" d="M2060 1290 L2065 1290 L2065 1310 L2060 1310Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2000 1200 L2100 1250 L2100 1245 L2000 1195 Z" />
+  <!--2ndBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2000 1095 L2100 1145 L2100 1245 L2000 1195 Z" />
+    <path fill="#CDA66B" d="M2015 1104 L2085 1133 L2085 1235 L2015 1200 Z" />
+    <path fill="#000" d="M2030 1125 L2035 1125 L2035 1155 L2030 1155Z" />
+    <path fill="#000" d="M2030 1170 L2035 1170 L2035 1190 L2030 1190Z" />
+    <path fill="#000" d="M2040 1130 L2045 1130 L2045 1160 L2040 1160Z" />
+    <path fill="#000" d="M2040 1175 L2045 1175 L2045 1195 L2040 1195Z" />
+    <path fill="#000" d="M2050 1135 L2055 1135 L2055 1165 L2050 1165Z" />
+    <path fill="#000" d="M2050 1180 L2055 1180 L2055 1200 L2050 1200Z" />
+    <path fill="#000" d="M2060 1140 L2065 1140 L2065 1170 L2060 1170Z" />
+    <path fill="#000" d="M2060 1185 L2065 1185 L2065 1205 L2060 1205Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2000 1095 L2100 1145 L2100 1140 L2000 1090 Z" />
+  <!--3rdBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2000 990 L2100 1040 L2100 1140 L2000 1090 Z" />
+    <path fill="#CDA66B" d="M2015 1000 L2085 1000 L2085 1131 L2015 1097 Z" />
+    <path fill="#000" d="M2030 1020 L2035 1020 L2035 1050 L2030 1050Z" />
+    <path fill="#000" d="M2030 1065 L2035 1065 L2035 1085 L2030 1085Z" />
+    <path fill="#000" d="M2040 1025 L2045 1025 L2045 1055 L2040 1055Z" />
+    <path fill="#000" d="M2040 1070 L2045 1070 L2045 1090 L2040 1090Z" />
+    <path fill="#000" d="M2050 1030 L2055 1030 L2055 1060 L2050 1060Z" />
+    <path fill="#000" d="M2050 1075 L2055 1075 L2055 1095 L2050 1095Z" />
+    <path fill="#000" d="M2060 1035 L2065 1035 L2065 1065 L2060 1065Z" />
+    <path fill="#000" d="M2060 1080 L2065 1080 L2065 1100 L2060 1100Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2000 990 L2100 1040 L2100 1035 L2000 985 Z" />
+  <!--4thBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2000 880 L2100 935 L2100 1035 L2000 986 Z" />
+    <path fill="#CDA66B" d="M2015 895 L2085 925 L2085 1025 L2015 990 Z" />
+    <path fill="#000" d="M2030 915 L2035 915 L2035 945 L2030 945" />
+    <path fill="#000" d="M2030 960 L2035 960 L2035 980 L2030 980Z" />
+    <path fill="#000" d="M2040 920 L2045 920 L2045 950 L2040 950Z" />
+    <path fill="#000" d="M2040 965 L2045 965 L2045 985 L2040 985Z" />
+    <path fill="#000" d="M2050 925 L2055 925 L2055 955 L2050 955Z" />
+    <path fill="#000" d="M2050 970 L2055 970 L2055 990 L2050 990Z" />
+    <path fill="#000" d="M2060 930 L2065 930 L2065 960 L2060 960Z" />
+    <path fill="#000" d="M2060 975 L2065 975 L2065 995 L2060 995Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2000 890 L2100 935 L2100 930 L2000 885 Z" />
+  <!--5thBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2000 790 L2100 825 L2100 935 L2000 890 Z" />
+    <path fill="#CDA66B" d="M2015 790 L2085 805 L2085 925 L2015 895 Z" />
+    <circle cx="2050" cy="860" r="35" stroke="#8A775A" stroke-width="3" fill="#EDC07D" />
+    <path fill="#000" d="M2050 860 L2050 865 L2070 870 L2070 865 Z" />
+    <path fill="#000" d="M2050 860 L2055 860 L2055 835 L2050 835 Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2000 890 L2100 935 L2100 930 L2000 885 Z" />
+
+  <!--RightPart-->
+  <!--Underline-->
+  <path class="move" fill="#7C705C" d="M2200 1300 L2100 1350 L2100 1360 L2200 1310 Z" />
+  <!--1stBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2100 1250 L2200 1200 L2200 1300 L2100 1350 Z" />
+    <path fill="#CDA66B" d="M2115 1240 L2185 1193 L2185 1307 L2115 1343 Z" />
+    <path fill="#000" d="M2130 1250 L2135 1250 L2135 1290 L2130 1290Z" />
+    <path fill="#000" d="M2130 1305 L2135 1305 L2135 1325 L2130 1325Z" />
+    <path fill="#000" d="M2140 1245 L2145 1245 L2145 1285 L2140 1285Z" />
+    <path fill="#000" d="M2140 1300 L2145 1300 L2145 1320 L2140 1320Z" />
+    <path fill="#000" d="M2150 1240 L2155 1240 L2155 1280 L2150 1280Z" />
+    <path fill="#000" d="M2150 1295 L2155 1295 L2155 1315 L2150 1315Z" />
+    <path fill="#000" d="M2160 1235 L2165 1235 L2165 1275 L2160 1275Z" />
+    <path fill="#000" d="M2160 1290 L2165 1290 L2165 1310 L2160 1310Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2100 1250 L2200 1200 L2200 1195 L2100 1245 Z" />
+  <!--2ndBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2100 1145 L2200 1095 L2200 1195 L2100 1245 Z" />
+    <path fill="#CDA66B" d="M2115 1035 L2185 1085 L2185 1203 L2115 1237 Z" />
+    <path fill="#000" d="M2130 1145 L2135 1145 L2135 1175 L2130 1175Z" />
+    <path fill="#000" d="M2130 1190 L2135 1190 L2135 1210 L2130 1210Z" />
+    <path fill="#000" d="M2140 1140 L2145 1140 L2145 1170 L2140 1170Z" />
+    <path fill="#000" d="M2140 1185 L2145 1185 L2145 1205 L2140 1205Z" />
+    <path fill="#000" d="M2150 1135 L2155 1135 L2155 1165 L2150 1165Z" />
+    <path fill="#000" d="M2150 1180 L2155 1180 L2155 1200 L2150 1200Z" />
+    <path fill="#000" d="M2160 1130 L2165 1130 L2165 1160 L2160 1160Z" />
+    <path fill="#000" d="M2160 1175 L2165 1175 L2165 1195 L2160 1195Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2100 1145 L2200 1095 L2200 1090 L2100 1140 Z" />
+  <!--3rdBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2100 1040 L2200 990 L2200 1090 L2100 1140 Z" />
+    <path fill="#CDA66B" d="M2115 1030 L2185 990 L2185 1097 L2115 1132 Z" />
+    <path fill="#000" d="M2130 1040 L2135 1040 L2135 1070 L2130 1070Z" />
+    <path fill="#000" d="M2130 1085 L2135 1085 L2135 1105 L2130 1105Z" />
+    <path fill="#000" d="M2140 1035 L2145 1035 L2145 1065 L2140 1065Z" />
+    <path fill="#000" d="M2140 1080 L2145 1080 L2145 1100 L2140 1100Z" />
+    <path fill="#000" d="M2150 1030 L2155 1030 L2155 1060 L2150 1060Z" />
+    <path fill="#000" d="M2150 1075 L2155 1075 L2155 1095 L2150 1095Z" />
+    <path fill="#000" d="M2160 1025 L2165 1025 L2165 1055 L2160 1055Z" />
+    <path fill="#000" d="M2160 1070 L2165 1070 L2165 1090 L2160 1090Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2100 1040 L2200 990 L2200 985 L2100 1035 Z" />
+  <!--4thBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2100 935 L2200 885 L2200 985 L2100 1035 Z" />
+    <path fill="#CDA66B" d="M2115 915 L2185 885 L2185 993 L2115 1026 Z" />
+    <path fill="#000" d="M2130 935 L2135 935 L2135 965 L2130 965Z" />
+    <path fill="#000" d="M2130 980 L2135 980 L2135 1000 L2130 1000Z" />
+    <path fill="#000" d="M2140 930 L2145 930 L2145 960 L2140 960Z" />
+    <path fill="#000" d="M2140 975 L2145 975 L2145 995 L2140 995Z" />
+    <path fill="#000" d="M2150 925 L2155 925 L2155 955 L2150 955Z" />
+    <path fill="#000" d="M2150 970 L2155 970 L2155 990 L2150 990Z" />
+    <path fill="#000" d="M2160 920 L2165 920 L2165 950 L2160 950Z" />
+    <path fill="#000" d="M2160 965 L2165 965 L2165 985 L2160 985Z" />
+  </g>
+  <!--Underline-->
+  <path class="move" fill="#CDA66B" d="M2100 935 L2200 885 L2200 880 L2100 930 Z" />
+  <!--5thBlock-->
+  <g class="move">
+    <path fill="#EDC07D" d="M2100 830 L2200 780 L2200 880 L2100 930 Z" />
+    <path fill="#CDA66B" d="M2115 820 L2185 787 L2185 887 L2115 921 Z" />
+    <circle cx="2150" cy="860" r="35" stroke="#8A775A" stroke-width="3" fill="#EDC07D" />
+    <path fill="#000" d="M2150 860 L2150 865 L2170 865 L2170 860 Z" />
+    <path fill="#000" d="M2150 860 L2155 860 L2155 835 L2150 835 Z" />
+  </g>
+
+  <!--Roof-->
+  <path class="move" fill="#393836" stroke="#403f3e" stroke-width="1" d="M2100 830 L2100 635 L2200 780Z" />
+  <path class="move" fill="#393836" stroke="#403f3e" stroke-width="1" d="M2100 830 L2100 635 L2000 790Z" />
+
+  <use x="120" y="65" xlink:href="#tower" />
+
+  <!-- รถ -->
+  <g>
+    <path d="M2100 1300 L2020 1260 L2023 1235 L2103 1273 z" style="fill: #c7c7c7;" />
+    <path d="M2103 1273 L2165 1240 L2085 1203 L2023 1235 z" style="fill: #c7c7c7;" />
+    <path d="M2103 1273 L2165 1240 L2165 1268 L2100 1300 z" style="fill: #c7c7c7;" />
+    <path d="M2165 1240 L2173 1200 L2092 1166 L2085 1203 z" style="fill: #a5f1f6;" />
+    <path d="M2173 1200 L2250 1163 L2260 1190 L2260 1220 L2165 1268 L2165 1240 z" style="fill: #c7c7c7;" />
+    <path d="M2173 1200 L2092 1166 L2170 1129 L2250 1163 z" style="fill: #c7c7c7;" />
+    <path d="M2165 1240 L2173 1200 L2250 1163 L2260 1190 z" style="fill: #a5f1f6;" />
+    <circle id="wheel1" cx="2150" cy="1275" r="14" transform= "skewY(60deg)" />
+    <circle id="wheel2" cx="2231" cy="1233" r="14" transform= "skewY(60deg)" />
+    <animateTransform attributeName="transform" type="translate" values="0 0; -1950 1000;" dur="30s" repeatCount="indefinite" />
+  </g>
+
+ </svg>
+
+</body>
+</html>
